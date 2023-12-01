@@ -27,6 +27,7 @@ struct Day01: AdventDay {
 		for entry in entries {
 			let numbersOnly = entry.replacing(try! Regex("[a-z]"), with: "")
 			let computedNumber = Int("\(numbersOnly.first!)\(numbersOnly.last!)")
+			
 			total += computedNumber!
 		}
 
@@ -34,17 +35,17 @@ struct Day01: AdventDay {
     }
 	
 	private func replaceNumberWordsWithNumbers(entries: [String]) -> [String] {
-		let numberWords: [Int: String] = [
-			0: "zero",
-			1: "one",
-			2: "two",
-			3: "three",
-			4: "four",
-			5: "five",
-			6: "six",
-			7: "seven",
-			8: "eight",
-			9: "nine"
+		let numberWords: [String: String] = [
+			"z0o": "zero",
+			"o1e": "one",
+			"t2o": "two",
+			"t3e": "three",
+			"f4r": "four",
+			"f5e": "five",
+			"s6x": "six",
+			"s7n": "seven",
+			"e8t": "eight",
+			"n9e": "nine"
 		]
 	  
 		let replacedWords: [String] = entries.map {
@@ -54,9 +55,9 @@ struct Day01: AdventDay {
 			// adds a number on for every match
 		  
 			for (key, value) in numberWords {
-				newWord = newWord.replacingOccurrences(of: value, with: String(key))
+				newWord = newWord.replacingOccurrences(of: value, with: key)
 			}
-		  
+			
 			return newWord
 		}
 		
