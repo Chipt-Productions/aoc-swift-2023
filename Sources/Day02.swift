@@ -84,6 +84,28 @@ struct Day02: AdventDay {
 		return isValidGame
 	}
 	
+	/**
+	 * Gets the minimum of cubes needed per color to make a valid game, and returns the
+	 * multiplication of the cube color couts
+	 */
+	private func getProductOfMinCubes(game: [[String: Int]]) -> Int {
+		var neededColors = [
+			"red": 0,
+			"green": 0,
+			"blue": 0
+		]
+		
+		for grab in game {
+			for color in grab {
+				if (color.value > neededColors[color.key]!) {
+					neededColors[color.key] = color.value
+				}
+			}
+		}
+		
+		return neededColors["red"]! * neededColors["green"]! * neededColors["blue"]!
+	}
+	
 	
 	// Solving Part 1 of the daily challenge
 	func part1() -> Any {
@@ -101,6 +123,12 @@ struct Day02: AdventDay {
 	
 	// Solving Part 2 of the daily challenge
 	func part2() -> Any {
-		return 0
+		var total = 0
+		
+		for game in games {
+			total += getProductOfMinCubes(game: game.values.first!)
+		}
+		
+		return total
 	}
 }
