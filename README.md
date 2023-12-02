@@ -2,11 +2,17 @@
 
 [![Language](https://img.shields.io/badge/language-Swift-red.svg)](https://swift.org)
 
-Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
-[Eric Wastl](<http://was.tl/>). This project was created from a small example starter project for
-building Advent of Code solutions using Swift.
+Hi! 👋🏼 My name is Jade, and I'm a total Swift newbie.
 
-## Usage
+The goal for this project is to better learn the Swift programming language by solving 
+2023's [Advent of Code](<https://adventofcode.com/>) programming puzzles, made by
+[Eric Wastl](<http://was.tl/>).
+
+This project was created from Apple's 
+[example starter project](https://github.com/apple/swift-aoc-starter-example) 
+for building Advent of Code solutions using Swift.
+
+## Local Usage
 
 Swift comes with Xcode, or you can [install it](https://www.swift.org/install/)
 on a supported macOS, Linux, or Windows platform. 
@@ -25,7 +31,7 @@ extensions useful:
 - [apple-swift-format](https://marketplace.visualstudio.com/items?itemName=vknabel.vscode-apple-swift-format)
   (supports the [swift-format](https://github.com/apple/swift-format) package)
 
-## Challenges
+## Daily Challenges
 
 The challenges assume three files (replace 00 with the day of the challenge).
 
@@ -75,7 +81,7 @@ for more details.
 
 ## Challenge Submissions
 
-***Spoilers lie ahead -- Read at Your Own Risk***
+***Possible spoilers lie ahead -- Read at Your Own Risk***
 
 ### Day 01
 
@@ -98,3 +104,25 @@ Today's challenge also reminded me of the importance of tests, not just for
 catching bugs, but for creating smaller, intentional sets of data to test out
 important aspects of your code. Tests were instrumental for ensuring I properly
 caught the quirk in Part 2's computation.
+
+### Day 02
+
+Today was a pretty big crash course into Swift regex, which, apparently, has 
+been a bit of a mess. Support for Regex literals in Swift is relatively recent, 
+and the syntax in many of the examples online are incomplete, and will throw 
+an error. Today was one of those times I would have been at a bit of a loss, 
+had I not had access to a very taltented Swift Engineer 
+(the lovely [@pennig](https://github.com/pennig).
+
+With some help, I was able to get over the Regex learning curve and parse the 
+data into the structure I wanted for analysis.
+
+Only once I had written most of the parsing code, had we discovered Swift's 
+[RegexBuilder](https://developer.apple.com/documentation/regexbuilder), and 
+there is a strong temptation to revisit the parsing 👀.
+
+At this point, I'm definitely still writing mediocre code, mostly due to 
+limitations in understanding what's available to use, and how to be thinking 
+about data and types in Swift. As I get more comfortable, I hope to implement 
+some refactors and add some elegance and intentionality to this code. For now, 
+well, I'm just glad I'm getting the right results. 😅

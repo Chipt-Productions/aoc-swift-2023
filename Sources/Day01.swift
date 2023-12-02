@@ -11,7 +11,7 @@ import Algorithms
 struct Day01: AdventDay {
 	// Save your data in a corresponding text file in the `Data` directory.
 	var data: String
-
+	
 	// Splits input data into an array by splitting newlines
 	var entities: [String] {
 		// map through the entries to convert from Substring to String type
@@ -35,9 +35,9 @@ struct Day01: AdventDay {
 			
 			total += computedNumber!
 		}
-
+		
 		return total
-    }
+	}
 	
 	/**
 	 * This is sort of a hack. A string like "sevenine" is expected to resolve as "79" even though there's not exclusivity in the letters.
@@ -57,7 +57,7 @@ struct Day01: AdventDay {
 			"e8t": "eight",
 			"n9e": "nine"
 		]
-	  
+		
 		let replacedWords: [String] = entries.map {
 			var newWord = String($0)
 			
@@ -70,13 +70,13 @@ struct Day01: AdventDay {
 		
 		return replacedWords
 	}
-
+	
 	
 	// Solving Part 1 of the daily challenge
 	func part1() -> Any {
 		decodeNumberMessage(entries: entities)
 	}
-
+	
 	
 	// Solving Part 2 of the daily challenge
 	func part2() -> Any {
