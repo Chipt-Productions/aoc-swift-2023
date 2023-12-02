@@ -12,15 +12,20 @@ struct Day01: AdventDay {
 	// Save your data in a corresponding text file in the `Data` directory.
 	var data: String
 
-
 	// Splits input data into an array by splitting newlines
 	var entities: [String] {
+		// map through the entries to convert from Substring to String type
 		data.split(separator: "\n").map {
 			String($0)
 		}
 	}
 	
-	
+	/**
+	 * Performs the requested decode on the data set by removing all letters from each entry,
+	 * creating an Int with the first and last matched numbers in the reduced string.
+	 *
+	 * Adds numbers up and returns the total for the set.
+	 */
 	private func decodeNumberMessage(entries: [String]) -> Int {
 		var total = 0
 		
@@ -34,6 +39,11 @@ struct Day01: AdventDay {
 		return total
     }
 	
+	/**
+	 * This is sort of a hack. A string like "sevenine" is expected to resolve as "79" even though there's not exclusivity in the letters.
+	 * By retaining the first and last letters, we allow for matches on shared borders.
+	 * No two number words overlap more than one character.
+	 */
 	private func replaceNumberWordsWithNumbers(entries: [String]) -> [String] {
 		let numberWords: [String: String] = [
 			"z0o": "zero",
@@ -51,9 +61,6 @@ struct Day01: AdventDay {
 		let replacedWords: [String] = entries.map {
 			var newWord = String($0)
 			
-			// instead of replacing the characters, we write a new number entity which
-			// adds a number on for every match
-		  
 			for (key, value) in numberWords {
 				newWord = newWord.replacingOccurrences(of: value, with: key)
 			}
@@ -65,13 +72,13 @@ struct Day01: AdventDay {
 	}
 
 	
-	// Replace this with your solution for the first part of the day's challenge.
+	// Solving Part 1 of the daily challenge
 	func part1() -> Any {
 		decodeNumberMessage(entries: entities)
 	}
 
 	
-	// Replace this with your solution for the second part of the day's challenge.
+	// Solving Part 2 of the daily challenge
 	func part2() -> Any {
 		let replacedWords = replaceNumberWordsWithNumbers(entries: entities)
 		return decodeNumberMessage(entries: replacedWords)
