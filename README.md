@@ -2,11 +2,17 @@
 
 [![Language](https://img.shields.io/badge/language-Swift-red.svg)](https://swift.org)
 
-Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
-[Eric Wastl](<http://was.tl/>). This project was created from a small example starter project for
-building Advent of Code solutions using Swift.
+Hi! 👋🏼 My name is Jade, and I'm a total Swift newbie.
 
-## Usage
+The goal for this project is to better learn the Swift programming language by solving 
+2023's [Advent of Code](<https://adventofcode.com/>) programming puzzles, made by
+[Eric Wastl](<http://was.tl/>).
+
+This project was created from Apple's 
+[example starter project](https://github.com/apple/swift-aoc-starter-example) 
+for building Advent of Code solutions using Swift.
+
+## Local Usage
 
 Swift comes with Xcode, or you can [install it](https://www.swift.org/install/)
 on a supported macOS, Linux, or Windows platform. 
@@ -25,7 +31,7 @@ extensions useful:
 - [apple-swift-format](https://marketplace.visualstudio.com/items?itemName=vknabel.vscode-apple-swift-format)
   (supports the [swift-format](https://github.com/apple/swift-format) package)
 
-## Challenges
+## Daily Challenges
 
 The challenges assume three files (replace 00 with the day of the challenge).
 
@@ -75,7 +81,7 @@ for more details.
 
 ## Challenge Submissions
 
-***Spoilers lie ahead -- Read at Your Own Risk***
+***Possible spoilers lie ahead -- Read at Your Own Risk***
 
 ### Day 01
 
