@@ -98,3 +98,25 @@ Today's challenge also reminded me of the importance of tests, not just for
 catching bugs, but for creating smaller, intentional sets of data to test out
 important aspects of your code. Tests were instrumental for ensuring I properly
 caught the quirk in Part 2's computation.
+
+### Day 02
+
+Today was a pretty big crash course into Swift regex, which, apparently, has 
+been a bit of a mess. Support for Regex literals in Swift is relatively recent, 
+and the syntax in many of the examples online are incomplete, and will throw 
+an error. Today was one of those times I would have been at a bit of a loss, 
+had I not had access to a very taltented Swift Engineer 
+(the lovely [@pennig](https://github.com/pennig).
+
+With some help, I was able to get over the Regex learning curve and parse the 
+data into the structure I wanted for analysis.
+
+Only once I had written most of the parsing code, had we discovered Swift's 
+[RegexBuilder](https://developer.apple.com/documentation/regexbuilder), and 
+there is a strong temptation to revisit the parsing 👀.
+
+At this point, I'm definitely still writing mediocre code, mostly due to 
+limitations in understanding what's available to use, and how to be thinking 
+about data and types in Swift. As I get more comfortable, I hope to implement 
+some refactors and add some elegance and intentionality to this code. For now, 
+well, I'm just glad I'm getting the right results. 😅
