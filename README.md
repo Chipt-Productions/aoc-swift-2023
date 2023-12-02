@@ -112,7 +112,7 @@ been a bit of a mess. Support for Regex literals in Swift is relatively recent,
 and the syntax in many of the examples online are incomplete, and will throw 
 an error. Today was one of those times I would have been at a bit of a loss, 
 had I not had access to a very taltented Swift Engineer 
-(the lovely [@pennig](https://github.com/pennig).
+(the lovely [@pennig](https://github.com/pennig)).
 
 With some help, I was able to get over the Regex learning curve and parse the 
 data into the structure I wanted for analysis.
