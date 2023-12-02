@@ -40,7 +40,7 @@ struct Day01: AdventDay {
     }
 	
 	/**
-	 * This is sort of a hack. A string like "zerone" should resolve as "01" even though there's not exclusivity in the letters.
+	 * This is sort of a hack. A string like "sevenine" is expected to resolve as "79" even though there's not exclusivity in the letters.
 	 * By retaining the first and last letters, we allow for matches on shared borders.
 	 * No two number words overlap more than one character.
 	 */

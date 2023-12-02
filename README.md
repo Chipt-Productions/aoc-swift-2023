@@ -1,10 +1,10 @@
-# Advent of Code Swift Starter Project
+# Learning Swift through Advent of Code
 
 [![Language](https://img.shields.io/badge/language-Swift-red.svg)](https://swift.org)
 
 Daily programming puzzles at [Advent of Code](<https://adventofcode.com/>), by
-[Eric Wastl](<http://was.tl/>). This is a small example starter project for
-building Advent of Code solutions.
+[Eric Wastl](<http://was.tl/>). This project was created from a small example starter project for
+building Advent of Code solutions using Swift.
 
 ## Usage
 
@@ -72,3 +72,29 @@ swift-format will use the built-in default style to lint and format code. A
 `.swift-format` configuration file can be used to customize the style used, see
 [Configuration](https://github.com/apple/swift-format/blob/main/Documentation/Configuration.md)
 for more details. 
+
+## Challenge Submissions
+
+***Spoilers lie ahead -- Read at Your Own Risk***
+
+### Day 01
+
+This was a good real-world introduction to Swift. It challenged my knowledge 
+of the syntax, types, and some of the String and Substring methods (there are
+so many!).
+
+There was a twist in part two of today's challenge, which was not very well 
+documented. As a result, the second half took quite a while, and I had to
+come up with a strange solution to avoid a complete refactor of my approach.
+
+It's always hard to learn a new language, I knew I could have solved this much
+faster if I were using a familiar language, such as TypeScript. However, I am
+committing myself to complete this year's advent in Swift, as it's going to be
+a great way to get more familiar with it. Hopefully by day 24 I'm no longer 
+struggling with little things like creating Regexes or converting Substrings to 
+Strings 😅.
+
+Today's challenge also reminded me of the importance of tests, not just for
+catching bugs, but for creating smaller, intentional sets of data to test out
+important aspects of your code. Tests were instrumental for ensuring I properly
+caught the quirk in Part 2's computation.
