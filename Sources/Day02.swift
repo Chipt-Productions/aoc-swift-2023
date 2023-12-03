@@ -9,7 +9,7 @@ import Foundation
 
 struct Day02: AdventDay {
 	// Save your data in a corresponding text file in the `Data` directory.
-	var data: String
+	var data: Data
 
 	// Constants for cube counts
 	let cubeCounts = [
@@ -22,7 +22,7 @@ struct Day02: AdventDay {
 	 * Parses data to provide structured data set for code challenge.
 	 */
 	var games: [[String: [[String: Int]]]] {
-		data.split(separator: "\n").map {
+		string.split(separator: "\n").map {
 			// 1. Parse the game ID
 			let gameIndexPattern = #/Game (\d+)/#
 			var gameIndex: String = ""

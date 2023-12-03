@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Day02.swift
 //
 //
 //  Created by Jade on 12/2/23.
@@ -19,7 +19,7 @@ final class Day02Tests: XCTestCase {
 			Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
 			""" // games 3 and 4 are impossible, leaving 1 + 2 + 5 = 8
 		
-		let challenge = Day02(data: testData)
+		let challenge = Day02(data: testData.data(using: .utf8)!)
 		XCTAssertEqual(String(describing: challenge.part1()), "8")
 	}
 	
@@ -38,7 +38,7 @@ final class Day02Tests: XCTestCase {
 			// game 5 min cubes: 3 green, 2 blue, 6 red = 3 * 2 * 6 = 36
 			// game totals = 2286
 
-		let challenge = Day02(data: testData)
+		let challenge = Day02(data: testData.data(using: .utf8)!)
 		XCTAssertEqual(String(describing: challenge.part2()), "2286")
 	}
 }

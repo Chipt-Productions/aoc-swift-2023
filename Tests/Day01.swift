@@ -17,7 +17,7 @@ final class Day01Tests: XCTestCase {
 			oo2dd
 			""" // 82 + 19 + 22 = 123
 		
-		let challenge = Day01(data: testData)
+		let challenge = Day01(data: testData.data(using: .utf8)!)
 		XCTAssertEqual(String(describing: challenge.part1()), "123")
 	}
 	
@@ -30,7 +30,7 @@ final class Day01Tests: XCTestCase {
 			7
 			""" // 12 + 81 + 20 + 82 + 77 = 272
 		
-		let challenge = Day01(data: testData)
+		let challenge = Day01(data: testData.data(using: .utf8)!)
 		XCTAssertEqual(String(describing: challenge.part2()), "272")
 	}
 }
