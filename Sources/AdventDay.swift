@@ -8,9 +8,12 @@ protocol AdventDay {
 	/// You can implement this property, or, if your type is named with the
 	/// day number as its suffix (like `Day01`), it is derived automatically.
 	static var day: Int { get }
-	
+
+	var data: Data { get }
+	var string: String { get }
+
 	/// An initializer that uses the provided test data.
-	init(data: String)
+	init(data: Data)
 	
 	/// Computes and returns the answer for part one.
 	func part1() async throws -> Any
@@ -40,6 +43,10 @@ extension AdventDay {
 		Self.day
 	}
 	
+	var string: String {
+		String(data: data, encoding: .utf8)!
+	}
+	
 	// Default implementation of `part2`, so there aren't interruptions before
 	// working on `part1()`.
 	func part2() -> Any {
@@ -51,7 +58,7 @@ extension AdventDay {
 		self.init(data: Self.loadData(challengeDay: Self.day))
 	}
 	
-	static func loadData(challengeDay: Int) -> String {
+	static func loadData(challengeDay: Int) -> Data {
 		let dayString = String(format: "%02d", challengeDay)
 		let dataFilename = "Day\(dayString)"
 		let dataURL = Bundle.module.url(
@@ -60,13 +67,13 @@ extension AdventDay {
 			subdirectory: "Data")
 		
 		guard let dataURL,
-					let data = try? String(contentsOf: dataURL)
+					let data = try? Data(contentsOf: dataURL)
 		else {
 			fatalError("Couldn't find file '\(dataFilename).txt' in the 'Data' directory.")
 		}
 		
 		// On Windows, line separators may be CRLF. Converting to LF so that \n
 		// works for string parsing.
-		return data.replacingOccurrences(of: "\r", with: "")
+		return data.filter { $0 != 0xd /* \r */ }
 	}
 }

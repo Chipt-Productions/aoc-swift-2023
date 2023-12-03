@@ -10,12 +10,12 @@ import Algorithms
 
 struct Day01: AdventDay {
 	// Save your data in a corresponding text file in the `Data` directory.
-	var data: String
+	var data: Data
 	
 	// Splits input data into an array by splitting newlines
 	var entities: [String] {
 		// map through the entries to convert from Substring to String type
-		data.split(separator: "\n").map {
+		string.split(separator: "\n").map {
 			String($0)
 		}
 	}
