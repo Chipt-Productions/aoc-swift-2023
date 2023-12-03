@@ -126,3 +126,14 @@ limitations in understanding what's available to use, and how to be thinking
 about data and types in Swift. As I get more comfortable, I hope to implement 
 some refactors and add some elegance and intentionality to this code. For now, 
 well, I'm just glad I'm getting the right results. 😅
+
+### Day 03
+
+Oof, matrix traversal. I always cringe at these types of code puzzzles.
+
+I won't pretend I didn't blatantly copy @pennig's code, after about a hundred
+questions on Swift ranges and how his solution worked. The upside is I actually
+feel like I've learned quite a bit today. Swift ranges are pretty cool.
+
+Tests continue to be a vital proofing ground, as they can be run a lot faster
+than the full code compile.
