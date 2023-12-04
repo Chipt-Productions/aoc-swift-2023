@@ -153,10 +153,6 @@ I'm also making use of reduce to minimize the amount of code needed for part 1,
 which was a fun bit of practice, since reduce is a method I don't use very often 
 (and should probably think to use more...).
 
-Part 2 gets into recursions, which is also something I don't work on very often.
-Ridiculousness of the story aside (winning lottery tickets giving dupe tickets?),
-I *suppose* 🤷🏼‍♀️ it was "fun" to complete this part. 😅
-
 Overall, today felt like the day I started feeling more comfortable in Swift -
 thinking of my data with Structs and Sets, understanding types and how to handle
 optionals, using smart instance methods, and composing my code in a way which 
