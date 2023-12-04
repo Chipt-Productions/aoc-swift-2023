@@ -137,3 +137,29 @@ feel like I've learned quite a bit today. Swift ranges are pretty cool.
 
 Tests continue to be a vital proofing ground, as they can be run a lot faster
 than the full code compile.
+
+### Day 04
+
+It's nice to come back to some fun regex parsing after yesterday (yes, I'm one 
+of those weirdos who actually likes regex). Today is also a fun exploration into
+sets, which I've lightly tapped on in my Swift learnings so far (alongside Advent 
+of Code, I am taking some Codecademy courses to learn Swift and SwiftUI).
+
+Sets give us a lot of methods for comparing two sets of things, and finding things
+like intersections, unions, etc. There are quite a lot of methods, and it made 
+figuring out today's challenge a breeze.
+
+I'm also making use of reduce to minimize the amount of code needed for part 1,
+which was a fun bit of practice, since reduce is a method I don't use very often 
+(and should probably think to use more...).
+
+Part 2 gets into recursions, which is also something I don't work on very often.
+Ridiculousness of the story aside (winning lottery tickets giving dupe tickets?),
+I *suppose* 🤷🏼‍♀️ it was "fun" to complete this part. 😅
+
+Overall, today felt like the day I started feeling more comfortable in Swift -
+thinking of my data with Structs and Sets, understanding types and how to handle
+optionals, using smart instance methods, and composing my code in a way which 
+feels readable and intuitive.
+
+I look forward to Day 05.
