@@ -9,8 +9,6 @@ import Foundation
 
 struct Scratchcard {
 	let card: Int
-	let winners: Set<Int>
-	let numbers: Set<Int>
 	let winningNumbers: Set<Int>
 	let numWinners: Int
 }
@@ -23,14 +21,12 @@ struct Day04: AdventDay {
 			let cardRegex = #/Card\s+(\d+): ([\s+\d+]+)\|([\s+\d+]+)/#
 			let cardParts = try! cardRegex.firstMatch(in: card)
 			let cardIndex = Int(cardParts!.1) ?? 0
-			let winningList = cardParts!.2.split(separator: #/\s+/#)
-			let numberList = cardParts!.3.split(separator: #/\s+/#)
 			
-			let winners = Set(winningList.compactMap{Int($0)})
-			let numbers = Set(numberList.compactMap{Int($0)})
+			let winners = Set(cardParts!.2.split(separator: #/\s+/#).compactMap{Int($0)})
+			let numbers = Set(cardParts!.3.split(separator: #/\s+/#).compactMap{Int($0)})
 			let winningNumbers = numbers.intersection(winners)
 			
-			return Scratchcard(card: cardIndex, winners: winners, numbers: numbers, winningNumbers: winningNumbers, numWinners: winningNumbers.count)
+			return Scratchcard(card: cardIndex, winningNumbers: winningNumbers, numWinners: winningNumbers.count)
 		}
 
 	}
