@@ -31,50 +31,36 @@ struct Day05: AdventDay {
 	var data: Data
 	
 	private func generateAlminac() -> Alminac {
-		let strings = data.strings()
-
+		let stringGroups = data.stringGroups()
+		
 		let seedsPattern = #/seeds:\s+(.*)/#
 		let labelPattern = #/(\w+)-to-(\w+)/#
 		let rangePattern = #/(\d+)\s+(\d+)\s+(\d+)/#
 
 		// we know "seeds" is the first line, so we can pull that out directly
-		let seedsSearch = try! seedsPattern.firstMatch(in: strings[0])
+		let seedsSearch = try! seedsPattern.firstMatch(in: stringGroups[0][0])
 		let seeds = seedsSearch!.1.split(separator: #/\s+/#).compactMap{Int($0)}
-		
+
 		// create Alminac record
 		var alminac = Alminac(seeds: seeds, maps: [:])
 		
-		// create instance of the alminac map
-		var alminacMap = AlminacMap(source: "", destination: "", ranges: [])
-		
-		// skip first line since we already processed
-		for index in 1...strings.count - 1 {
-			let line = strings[index]
-			let labelSearch = try! labelPattern.firstMatch(in: line)
-			let rangeSearch = try! rangePattern.firstMatch(in: line)
+		// skip first group since we already processed it
+		for index in 1..<stringGroups.count {
+			let groupEntries = stringGroups[index]
+
+			// first entry in the group is the label
+			let labelSearch = try! labelPattern.firstMatch(in: groupEntries[0])
+			let source = String(labelSearch!.1)
+			let destination = String(labelSearch!.2)
+
+			// create new AlminacMap record
+			var alminacMap = AlminacMap(source: source, destination: destination, ranges: [])
 			
-			// Parse label match
-			if labelSearch != nil {
-				let source = String(labelSearch!.1)
-				let destination = String(labelSearch!.2)
-				
-				// If we already have a populated AlminacMap, we are resetting alminacMap
-				// to the next category, and need to save the previous set to the alminac
-				if alminacMap.ranges.count > 0 {
-					alminac.maps[source] = alminacMap
-				}
-				
-				// Set base values for new AlminacMap
-				alminacMap = AlminacMap(
-					source: source,
-					destination: destination,
-					ranges: []
-				)
-			}
-			
-			// parse range match
-			// add onto current alminacMap
-			if rangeSearch != nil {
+			// add ranges to record
+			for rangeIndex in 1..<groupEntries.count {
+				let range = groupEntries[rangeIndex]
+				let rangeSearch = try! rangePattern.firstMatch(in: range)
+
 				let sourceStart = Int(rangeSearch!.2) ?? 0
 				let destinationStart = Int(rangeSearch!.1) ?? 0
 				let rangeNum = Int(rangeSearch!.3) ?? 0
@@ -86,40 +72,52 @@ struct Day05: AdventDay {
 					range: sourceStart...(sourceStart+rangeNum)
 				))
 			}
+			
+			// push record to alminac
+			alminac.maps[source] = alminacMap
 		}
+		
 		
 		return alminac
 	}
 	
 	func part1() -> Any {
 		let alminac = generateAlminac()
-//		print(alminac)
-		
+		var mappedSeeds: [Int] = []
+
 		// process each seed through each map layer
 		for seed in alminac.seeds {
-			print("seed:", seed)
+			var seedValue = mapThroughCategory(categoryName: "seed", runningValue: seed)
+			mappedSeeds.append(seedValue)
 			
-			print("Seed Map", alminac.maps.keys)
-			
-			// start with seed map; let maps connect until end
-//			var currentMap = alminac.maps
-			
-			
-//			for rangeMap in alminac.maps {
-//				for range in rangeMap.ranges {
-//					print(range.range.contains(seed))
-//				}
-////				print(rangeMap.ranges![0].range)
-//			}
+			// recursive function to follow category tree until done
+			func mapThroughCategory(categoryName: String, runningValue: Int) -> Int {
+				let categoryMap = alminac.maps[categoryName]
+				var newValue = runningValue
+				
+				// if the number is in the range, adjust the number
+				if categoryMap != nil {
+					for range in categoryMap!.ranges {
+						if range.range.contains(newValue) {
+							newValue = range.destinationStart + newValue - range.sourceStart
+							break
+						}
+					}
+				}
+				
+				// if this category has another map to follow, recurse
+				if categoryMap?.destination != nil {
+					newValue = mapThroughCategory(
+						categoryName: categoryMap!.destination,
+						runningValue: newValue
+					)
+				}
+
+				return newValue
+			}
 		}
 
-
-//		for alminacMap in alminac.maps {
-//			print(alminacMap)
-//		}
-//		print(alminac.maps)
-		
-		return 0
+		return mappedSeeds.min()!
 	}
 	
 	func part2() -> Any {

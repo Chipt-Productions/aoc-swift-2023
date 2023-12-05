@@ -12,7 +12,7 @@ import XCTest
 final class Day05Tests: XCTestCase {
 	func testPart1() throws {
 		let testData = """
-			seeds: 79
+			seeds: 79 14 55 13
 
 			seed-to-soil map:
 			50 98 2
@@ -48,7 +48,7 @@ final class Day05Tests: XCTestCase {
 			"""
 		
 		let challenge = Day05(data: testData.data(using: .utf8)!)
-		XCTAssertEqual(String(describing: challenge.part1()), "0") // 
+		XCTAssertEqual(String(describing: challenge.part1()), "35") // 
 	}
 	
 	func testPart2() throws {
