@@ -159,3 +159,23 @@ optionals, using smart instance methods, and composing my code in a way which
 feels readable and intuitive.
 
 I look forward to Day 05.
+
+### Day 05
+
+Oof, today was brutal. This is what I get for looking forward to things. 😅
+
+It started off well enough. Part 1 of today's challenge was, by far, the most
+complex requirements yet. I spent a bit of time thinking about my data model, 
+and liked the structure I came up with. I got everything parsed and made a nice 
+recursion to go through all of the transformation steps programmatically (rather 
+than linerally - not something I had to do, but something I wanted to try).
+
+I submitted part 1 correctly on my first attempt, and then part 2 hit.
+
+I tried to refactor things using IndexSets, and managed to do so, but my 
+performance *tanked*, and I wasn't getting the correct answer either. I'm gonna
+admit, I'm calling it in for Part 2 today. I managed to submit an answer through
+the wonders of open source (😅), but I do want to take a fresh look at my own
+solution again, perhaps once the dust has settled. 
+
+Until mañana.
